@@ -1,0 +1,36 @@
+section.new-tweet {
+  color: black;
+  border-radius: 5px;
+  background-color: white;
+  border: solid;
+  margin: 0 2em;
+}
+
+h2.new-tweet {
+  border-bottom: 1px solid black;
+}
+
+#count {
+  margin-right: 30px;
+  float: right;
+}
+
+#submit {
+  margin-left: 30px;
+  float: left;
+}
+
+textarea {
+  padding: 6px;
+  width: 360px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+form {
+  height: 120px;
+}
+
+.red {
+  color: red;
+}
