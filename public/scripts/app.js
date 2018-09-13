@@ -46,7 +46,7 @@ $('form#tweet-post').on('submit', function(e) {
   //Validating text length
   let words = $('textarea').val().length
   if (!words || words > 140) {
-    alert('NOOOOOOOOOOOOOOOOOOOOO!');
+    $('#error').slideDown();
     return;
   }
 
@@ -57,6 +57,7 @@ $('form#tweet-post').on('submit', function(e) {
     data: formData
   }).then(function() {
     $('textarea#text').val('');
+    $('#count').text('140');
     $('#tweet-container').empty();
     return $.ajax('/tweets/');
   }).then(renderTweets);
@@ -70,5 +71,19 @@ let loadTweets = function () {
 };
 
 loadTweets();
+
+$(function() {
+  $('#compose').click(function() {
+    
+    if($('.new-tweet').is(':hidden')) {
+      $('.new-tweet').slideDown('slow');
+      $('textarea').focus();
+    } else {
+      $('.new-tweet').fadeOut();
+    }
+  })
+});
+
+
 
 });

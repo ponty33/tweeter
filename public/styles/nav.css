@@ -23,3 +23,15 @@
   line-height: 80px;
   float: left;
 }
+
+.btn {
+  border: none;
+  background-color: forestgreen;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+}
+
+/* On mouse-over */
+.btn:hover {background: #eee;}

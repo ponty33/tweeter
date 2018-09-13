@@ -11,7 +11,8 @@ h2.new-tweet {
 }
 
 #count {
-  margin-right: 30px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   float: right;
 }
 
