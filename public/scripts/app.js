@@ -45,22 +45,26 @@ $('form#tweet-post').on('submit', function(e) {
 
   //Validating text length
   let words = $('textarea').val().length
-  if (!words || words > 140) {
-    $('#error').slideDown();
-    return;
+  if (!words) {
+    $('.error').text('Input required!');
+  } else if (words > 140) {
+    $('.error').text('Invalid input!');
+  } else {
+  //Submit using ajax
+    $.ajax('/tweets/', {
+      method: 'POST',
+      data: formData
+    }).then(function() {
+      $('textarea#text').val('');
+      $('#count').text('140');
+      $('#tweet-container').empty();
+      $('.error').text('');
+      return $.ajax('/tweets/');
+    }).then(renderTweets);
   }
 
   
-  //Submit using ajax
-  $.ajax('/tweets/', {
-    method: 'POST',
-    data: formData
-  }).then(function() {
-    $('textarea#text').val('');
-    $('#count').text('140');
-    $('#tweet-container').empty();
-    return $.ajax('/tweets/');
-  }).then(renderTweets);
+
 })
 
 let loadTweets = function () {
