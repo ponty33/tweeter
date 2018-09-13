@@ -15,8 +15,8 @@ html {
  */
 
 body {
-  color: #244751;
-  background-color: gainsboro;;
+  /* color: #244751; */
+  background-color: gainsboro;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -27,13 +27,12 @@ main.container {
   margin:0px auto;
   padding-top: 100px;
   text-align: center;
-  height: 800px;
-}
 
-/* main.container:hover {
+}
+ /* main.container:hover {
   width: 600px;
   transition: width 0.5 ease;
-} */
+}  */
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

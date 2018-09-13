@@ -34,24 +34,14 @@
     <main class="container">
         <section class="new-tweet">
           <h2>Compose Tweet</h2>
-          <form action="/tweets/" method="POST">
+          <form id="tweet-post" action="/tweets/" method="POST">
             <textarea id ="text" name="text" placeholder="What are you humming about?"></textarea>
             <input id="submit" type="submit" value="Tweet">
             <span id="count" class="counter">140</span>
           </form>
         </section>
-        <section class="old-tweets">
-          <article class="tweet">
-            <header>
-              <img class="avatar" src="/images/download.png">
-              <p class="account">@tttttt</p>
-              <h2 class="userName">NAME</h2>
-            </header>
-            <p class="tweet">CONTENT!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-            <footer>
-              <p>1000 years ago</p>
-            </footer>
-          </article>
+        <section id="tweet-container" class="old-tweets">
+          
         </section>
     </main>
 
