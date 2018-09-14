@@ -6,40 +6,48 @@
 
 $(document).ready(function() {
 
-const createTweetElement = function (tweetObj) {
-  //create tags for four parts of the tweet
-  let $article = $('<article>').addClass('tweet');
-  let $header = $('<header>').addClass('tweet');
-  let $footer = $('<footer>').addClass('tweet');
-  let $content = $('<p class="tweet">').text(tweetObj.content.text);
-  //create the sub-parts and insert content
-  let $username = $('<h2>').addClass('userName').append(tweetObj.user.name)
-  let $account = $('<p>').addClass('account').append(tweetObj.user.handle)
-  let $img = $('<img class="avatar">');
-  $img.attr('src', tweetObj.user.avatars.small);
-  let $date = $('<p>').append(tweetObj.created_at);
-  //put parts together
-  $header.append($img);
-  $header.append($username);
-  $header.append($account);
-  $footer.append($date);
-  $article.append($header);
-  $article.append($content);
-  $article.append($footer);
+  const createTweetElement = function (tweetObj) {
+    //create tags for four parts of the tweet
+    let $article = $('<article>').addClass('tweet');
+    let $header = $('<header>').addClass('tweet');
+    let $footer = $('<footer>').addClass('tweet');
+    let $content = $('<p class="tweet">').text(tweetObj.content.text);
+    //create the sub-parts and insert content
+    let $username = $('<h2>').addClass('userName').append(tweetObj.user.name)
+    let $account = $('<p>').addClass('account').append(tweetObj.user.handle)
+    let $img = $('<img class="avatar">');
+    $img.attr('src', tweetObj.user.avatars.small);
+    let $date = $('<p>').addClass('date').append(moment(tweetObj.created_at).fromNow());
+    let $like = $('<input>').addClass('footbtn').attr({"type": 'image', 'src': "/images/flag.png"})
+    let $flag = $('<input>').addClass('footbtn').attr({'type': 'image', 'src':"images/like.png"})
+    let $retweet = $('<input>').addClass('footbtn').attr({'type': 'image', 'src':"images/retweet.png"})
+    //put parts together
+    $header.append($img);
+    $header.append($username);
+    $header.append($account);
+    $footer.append($date);
+    $footer.append($like);
+    $footer.append($flag);
+    $footer.append($retweet);
+    $article.append($header);
+    $article.append($content);
+    $article.append($footer);
 
-  return $article;
-}
-
-function renderTweets(tweets) {
-  for (twe of tweets) {
-    input = createTweetElement(twe)
-    $('#tweet-container').prepend(input);
+    return $article;
   }
-}
 
 
-$('form#tweet-post').on('submit', function(e) {
-  e.preventDefault();
+
+  function renderTweets(tweets) {
+    for (twe of tweets) {
+      input = createTweetElement(twe)
+      $('#tweet-container').prepend(input);
+    }
+  }
+
+
+  $('form#tweet-post').on('submit', function(e) {
+    e.preventDefault();
 
   //Grab the content of the form
   let formData = $('form#tweet-post').serialize();
@@ -62,33 +70,27 @@ $('form#tweet-post').on('submit', function(e) {
       $('.error').text('');
       return $.ajax('/tweets/');
     }).then(renderTweets);
-  }
-
-  
-
-})
-
-let loadTweets = function () {
-  $.ajax('/tweets/', { method: 'GET' })
-  .then(function (tweetlog) {
-    renderTweets(tweetlog);
-  })
-};
-
-loadTweets();
-
-$(function() {
-  $('#compose').click(function() {
-    
-    if($('.new-tweet').is(':hidden')) {
-      $('.new-tweet').slideDown('slow');
-      $('textarea').focus();
-    } else {
-      $('.new-tweet').fadeOut();
     }
   })
-});
 
+  let loadTweets = function () {
+    $.ajax('/tweets/', { method: 'GET' })
+    .then(function (tweetlog) {
+      renderTweets(tweetlog);
+    })
+  };
 
+  loadTweets();
 
+  //Hide the textarea when "compose" is clicked
+  $(function() {
+    $('#compose').click(function() {
+      if($('.new-tweet').is(':hidden')) {
+        $('.new-tweet').slideDown('slow');
+        $('textarea').focus();
+      } else {
+        $('.new-tweet').fadeOut();
+      }
+    })
+  });
 });

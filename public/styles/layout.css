@@ -23,6 +23,8 @@ body {
 main.container {
   width: 60%;
   max-width: 450px;
+  min-width: 400px;
+  min-height: 180px;
   background-color: gray;
   margin: auto;
   padding-top: 100px;

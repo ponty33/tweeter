@@ -3,12 +3,18 @@ section.old-tweets {
   border-radius: 5px;
   background-color: white;
   margin: 0 2em;
+  display: flex;
+  flex-direction: column;
 }
 
 article.tweet:hover {
   border: 1px dotted #3a7999;
-	color: rgb(32, 95, 116);
+  color: rgb(32, 95, 116);
+  
 }
+
+
+
 
 article.tweet {
   margin-top: 20px;
@@ -21,6 +27,7 @@ article.tweet header {
  border-top-right-radius: 5px;
  border-top-left-radius: 5px;
  display: flex;
+ justify-content: space-between;
 }
 
 article.tweet footer {
@@ -31,6 +38,8 @@ article.tweet footer {
   padding-bottom: 5px;
   border-top: 1px solid;
   border-width: 1px 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
@@ -46,8 +55,8 @@ p.account {
 }
 
 img.avatar {
-  height: 70px;
-  width: 70px;
+  max-height: 70px;
+  min-width: 70px;
   float: left;
   border-radius: 5px;
   padding: 10px;
@@ -61,4 +70,26 @@ h2.userName {
 p.tweet {
   display: flex;
   padding-left: 15px;
+  text-align: left;
 }
+
+
+.date {
+  display: block;
+  flex-grow: 1;
+}
+
+.footbtn {
+  height: 1em;
+  width: 1em;
+  margin: 1em 0.5em 0 0.5em;
+  display: none;
+}
+
+/* On mouse-over */
+
+article.tweet:hover .footbtn{
+  display: inline-block;
+}
+
+
