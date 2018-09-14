@@ -36,6 +36,7 @@ article.tweet footer {
 
 
 p.account {
+  margin-right: 15px;
   padding-left: 80px;
   text-align: right;
 }
@@ -53,8 +54,7 @@ img.avatar {
 }
 
 h2.userName {
-  padding-right: 50px;
-  padding-left: 10px;
+
   float: right;
 }
 

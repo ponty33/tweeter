@@ -7,16 +7,18 @@
 $(document).ready(function() {
 
 const createTweetElement = function (tweetObj) {
+  //create tags for four parts of the tweet
   let $article = $('<article>').addClass('tweet');
   let $header = $('<header>').addClass('tweet');
   let $footer = $('<footer>').addClass('tweet');
-  let $content = $('<p class="tweet">').append(tweetObj.content.text);
-  
+  let $content = $('<p class="tweet">').text(tweetObj.content.text);
+  //create the sub-parts and insert content
   let $username = $('<h2>').addClass('userName').append(tweetObj.user.name)
   let $account = $('<p>').addClass('account').append(tweetObj.user.handle)
   let $img = $('<img class="avatar">');
   $img.attr('src', tweetObj.user.avatars.small);
   let $date = $('<p>').append(tweetObj.created_at);
+  //put parts together
   $header.append($img);
   $header.append($username);
   $header.append($account);
@@ -29,7 +31,6 @@ const createTweetElement = function (tweetObj) {
 }
 
 function renderTweets(tweets) {
-  let input;
   for (twe of tweets) {
     input = createTweetElement(twe)
     $('#tweet-container').prepend(input);

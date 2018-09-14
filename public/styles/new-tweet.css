@@ -22,7 +22,8 @@ h2.new-tweet {
 
 textarea {
   padding: 6px;
-  width: 360px;
+  width: 90%;
+  max-width: 360px;
   height: 70px;
   margin-bottom: 10px;
 }

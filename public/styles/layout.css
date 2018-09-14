@@ -21,11 +21,12 @@ body {
 }
 
 main.container {
-  width: 450px;
+  width: 60%;
+  max-width: 450px;
   background-color: gray;
-  color: red;
-  margin:0px auto;
+  margin: auto;
   padding-top: 100px;
+  padding-bottom: 30px;
   text-align: center;
 
 }

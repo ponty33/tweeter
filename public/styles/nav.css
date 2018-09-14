@@ -25,13 +25,16 @@
 }
 
 .btn {
+  margin-top: 1em;
   border: none;
   background-color: forestgreen;
   padding: 14px 28px;
-  font-size: 16px;
+  font-size: 0.5em;
   cursor: pointer;
   float: right;
 }
 
 /* On mouse-over */
-.btn:hover {background: #eee;}
+.btn:hover {
+  background: #eee;
+}
