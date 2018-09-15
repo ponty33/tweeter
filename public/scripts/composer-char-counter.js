@@ -1,3 +1,4 @@
+// Words counter
 $(document).ready(function() {
   var maxLength = 140;
   var count = $('#count');
